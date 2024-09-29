@@ -1,0 +1,63 @@
+The objective of this project is to calculate the minimum or shortest path in a road network using Dijkstra's Algorithm,
+ a popular graph-based algorithm designed to find the shortest path between nodes in a weighted graph. Road networks are
+  commonly represented using graphs, where intersections are depicted as nodes and roads between them as weighted edges. 
+  The weights on the edges typically represent distances, travel time, or any cost metric associated with traversing the path.
+
+Dijkstra's algorithm is highly effective for calculating the shortest distance from a source node to all other nodes in a graph.
+ This project applies the algorithm to a road network model using a queue-based approach to efficiently compute the shortest paths
+  and the number of shortest paths between nodes in the network.
+
+Problem Statement
+Given a road network represented as a directed weighted graph, the task is to:
+
+Compute the shortest distance between a starting node (source) and all other nodes.
+Determine the number of distinct shortest paths from the source to each node.
+The road network is modeled using an adjacency matrix, where each entry represents the weight (distance) of the road between two 
+intersections.
+
+Methodology
+Graph Representation
+A graph G=(V,E) is used to model the road network:
+
+V represents the set of nodes (intersections).
+E represents the set of edges (roads), each with 
+a weight w representing the distance or cost between nodes.
+The graph is represented using an adjacency matrix adjacencyMatrix, where each element adjacencyMatrix[i][j] stores the weight
+ of the edge between node i and node j. If no edge exists between i and j, the weight is set to 0.
+
+Dijkstra's Algorithm
+Dijkstra's algorithm is a greedy algorithm that iteratively selects the node with the smallest distance from the source and explores
+ all its neighbors to update their shortest distances. The key steps in the algorithm are:
+
+Initialization: The algorithm begins by initializing the source node with a distance of zero, while all other nodes are assigned a distance of infinity.
+Queue-based Processing: Nodes are processed using a queue that stores nodes based on their current distance. For each node, the algorithm updates the
+distances of its neighboring nodes and enqueues them if a shorter path is found.
+Multiple Shortest Paths: The algorithm also tracks the number of shortest paths to each node. If multiple paths lead to a node with the same minimum distance, the count of shortest paths is incremented.
+Data Structures
+Node Structure: Each node contains several attributes:
+
+data: Represents the node's label or identifier.
+dist: The current shortest distance from the source to the node.
+noOfShortestPath: The number of distinct shortest paths to the node.
+parent: A pointer to the node’s parent in the shortest path.
+cmpID: An ID representing the connected component to which the node belongs.
+Queue: A queue is used to explore nodes in a breadth-first manner. A custom queue implementation was initially used but later replaced with the std::queue from the C++ Standard Library for simplicity and performance.
+
+Algorithm Implementation
+The algorithm follows these steps:
+
+Initialize the Source Node: Set the source node’s distance to 0 and mark it as the starting point.
+Enqueue the Source Node: Add the source node to the queue.
+Process the Queue: While the queue is not empty:
+Dequeue the current node and explore all its neighbors.
+For each neighbor, calculate a tentative new distance.
+If the new distance is shorter than the current distance of the neighbor, update the neighbor’s distance and enqueue it.
+If the new distance is equal to the current distance, increment the count of shortest paths.
+Repeat until all nodes are processed.
+
+I have take taken two different data and solved the problem .
+
+- JAINENDRAJEET
+- IIT BOMBAY 
+- 2nd Year Under-Graduate
+- CSE Department
